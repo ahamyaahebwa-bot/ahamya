@@ -1,0 +1,226 @@
+.venues-hero {
+    text-align: center;
+    padding: 40px 6%;
+    background: var(--cedar-pale);
+}
+
+.venues-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.venues-hero p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Venue showcase */
+.venue-showcase {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 40px 6%;
+}
+
+.venue-photo {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.venue-photo img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.venue-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.venue-photo:hover img {
+    transform: scale(1.03);
+}
+
+.venue-details {
+    flex: 1;
+}
+
+.venue-details h2 {
+    margin-bottom: 15px;
+    columns: var(--cedar-dark);
+}
+
+.venue-details p {
+    margin-bottom: 20px;
+}
+
+.venue-details ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.venue-details li {
+    margin-bottom: 10px;
+}
+
+.comparison {
+    padding-left: 60px 6%;
+    text-align: center;
+}
+
+.comparison h2 {
+    margin-bottom: 30px;
+}
+
+.comparison-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.compare-card {
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.compare-card h3 {
+    columns: var(--cedar-dark);
+    margin-bottom: 15px;
+}
+
+.compare-card p {
+    margin-bottom: 15px;
+}
+
+/* venue badge */
+.venue-badge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    background: var(--cedar-green);
+    color: #fff;
+}
+
+.venue-price {
+    margin: 20px 0;
+    padding-top: 15px;
+    border-top: 1px solid var(--cedar-light);
+    text-align: right;
+}
+
+.price-label,
+.price-note {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--cedar-dark);
+}
+
+/* venue media */
+.venue-media {
+    flex: 1;
+}
+
+.venue-photo {
+    margin-bottom: 0;
+}
+
+.venue-photo-note {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid var(--cedar-light);
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* solid book buttons */
+.venue-details .primary-btn {
+    background: var(--cedar-green);
+    color: #fff;
+    border-color: var(--cedar-green);
+}
+
+.venue-details .primary-btn:hover {
+    background: var(--cedar-dark);
+    color: #fff;
+}
+
+/* hover effect */
+.venue-showcase {
+    transition: all 0.3s ease;
+}
+
+.venue-showcase:hover {
+    transform: translateY(-5px);
+}
+
+/* gallery */
+.gallery {
+    padding-left: 60px 6%;
+    margin-top: 60px;
+}
+
+.gallery h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Mobile Phone */
+@media (max-width: 768px) {
+    .venue-showcase {
+        flex-direction: column;
+        padding: 30px 6%;
+        gap: 20px;
+    }
+
+    .venue-photo {
+        margin-bottom: 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .venues-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .compare-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Desktop Venue pics smaller slightly */
+@media (min-width: 769px) {
+    .venue-media {
+        flex: 0 0 42%;
+    }
+
+    .venues-details {
+        flex: 1;
+    }
+}

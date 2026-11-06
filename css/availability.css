@@ -1,0 +1,139 @@
+/* ============================
+    BOOKED DATES CALENDAR
+============================*/
+
+.cal {
+    max-width: 420px;
+    padding: 16px;
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    border-radius: 15px;
+}
+
+.cal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: var(--cedar-dark);
+}
+
+.cal-head button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--cedar-dark);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cal-head button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    text-align: center;
+}
+
+.dow {
+    padding: 4px 0;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.day {
+    padding: 9px 0;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+.day.past {
+    background: transparent;
+    color: #bbb;
+}
+
+.day.booked {
+    background: #d9d9d9;
+    color: #777;
+    text-decoration: line-through;
+}
+
+.day.today {
+    outline: 2px solid var(--cedar-green);
+}
+
+.cal-note {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.cal-legend {
+    display: flex;
+    gap: 18px;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.sw {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    border-radius: 4px;
+    vertical-align: -2px;
+}
+
+.sw.free  { background: #fff; border: 1px solid var(--cedar-light); }
+.sw.taken { background: #d9d9d9; }
+
+
+/* calendar */
+.day.tall {
+    position: relative;
+    padding: 7px 0 15px;
+}
+
+.day .dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
+.day .dots b {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.dot-v, .sw.v { background: var(--cedar-green); }
+.dot-h, .sw.h { background: #c77a1a; }
+.sw.v, .sw.h { border-radius: 50%; }
+
+.dv-cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 26px;
+    background: var(--cedar-green);
+    color: #fff;
+    border-radius: 40px;
+    font-weight: bold;
+}
+
+.dv-cta:hover {
+    background: var(--cedar-dark);
+    color: #fff;
+}

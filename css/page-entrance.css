@@ -1,0 +1,92 @@
+/* Hides the page for the few milliseconds before the entrance animations
+   are set up, so nothing flashes in place first. Set by a tiny script in each
+   page's <head>, and removed by page-entrance.js (or after 1.5s as a failsafe). */
+html.motion-pending body > * {
+    opacity: 0;
+}
+
+/* One-shot entrances run only when the script reveals an element. */
+.motion-play {
+    animation: cedar-page-fly-down 920ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: var(--motion-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.motion-play.motion-from-left {
+    animation-name: cedar-page-fly-left;
+}
+
+.motion-play.motion-from-up {
+    animation-name: cedar-page-fly-up;
+}
+
+@keyframes cedar-page-fly-down {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes cedar-page-fly-left {
+    from {
+        opacity: 0;
+        transform: translate3d(-42px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes cedar-page-fly-up {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -44px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+html.page-motion-ready .hero {
+    background: var(--cedar-dark);
+}
+
+html.page-motion-ready .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    border-radius: inherit;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../images/cedar-park.jpg") center / cover no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    animation: cedar-hero-background-in 900ms ease-out forwards;
+}
+
+@keyframes cedar-hero-background-in {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .motion-play {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        will-change: auto;
+    }
+
+    html.page-motion-ready .hero::before {
+        opacity: 1;
+        animation: none;
+    }
+}

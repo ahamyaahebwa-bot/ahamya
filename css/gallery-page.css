@@ -1,0 +1,194 @@
+/* ============================
+    GALLERY PAGE (gallery.html)
+    Its own stylesheet, separate from gallery.css (the small preview on the Venues page).
+    Photos fill the screen in columns and keep their own shape (landscape or portrait).
+============================ */
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--cedar-green) transparent;
+}
+
+html::-webkit-scrollbar { width: 8px; }
+html::-webkit-scrollbar-thumb { background: var(--cedar-green); border-radius: 8px; }
+html::-webkit-scrollbar-track { background: transparent; }
+
+.gp-main {
+    padding: 0 6px;
+}
+
+/* ----- title + tabs ----- */
+.gp-head {
+    text-align: center;
+    padding: 34px 12px 20px;
+}
+
+.gp-head h1 {
+    color: var(--cedar-dark);
+    margin: 0;
+}
+
+.gp-sub {
+    margin: 6px 0 18px;
+    color: var(--cedar-text);
+    opacity: 0.75;
+}
+
+.gp-tabs {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.gp-tabs button {
+    padding: 8px 22px;
+    background: #fff;
+    color: var(--cedar-dark);
+    border: 1px solid var(--cedar-light);
+    border-radius: 40px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.gp-tabs button.active {
+    background: var(--cedar-green);
+    color: #fff;
+    border-color: var(--cedar-green);
+}
+
+/* ----- the photo columns ----- */
+.gp-cols {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+}
+
+.gp-col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* The tile's height comes from the photo's own shape (padding-bottom is set per photo in JS). */
+.gp-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding: 0 0 75%;
+    border: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #dfe8dc;
+    cursor: zoom-in;
+}
+
+.gp-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gp-item img.loaded { opacity: 1; }
+
+@media (hover: hover) {
+    .gp-item:hover img.loaded { transform: scale(1.04); }
+}
+
+.gp-item:focus-visible {
+    outline: 3px solid var(--cedar-green);
+    outline-offset: 2px;
+}
+
+/* ----- messages ----- */
+.gp-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--cedar-text);
+    opacity: 0.8;
+}
+
+/* ----- closing section ----- */
+.gp-cta {
+    margin: 110px -6px 0;
+    padding: 100px 6%;
+    text-align: center;
+    background-color: #eee;
+}
+
+.gp-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.gp-cta p {
+    margin-bottom: 25px;
+}
+
+@media (max-width: 640px) {
+    .gp-head { padding-top: 24px; }
+    .gp-cta { margin-top: 80px; padding: 70px 6%; }
+    .gp-cta h2 { font-size: 2.2rem; }
+}
+
+/* ----- photo viewer ----- */
+.gp-lb {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 14, 10, 0.94);
+}
+
+.gp-lb[hidden] { display: none; }
+
+.gp-lb img {
+    max-width: 94vw;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 6px;
+    user-select: none;
+}
+
+.gp-lb button {
+    position: absolute;
+    border: 0;
+    border-radius: 50%;
+    width: 46px;
+    height: 46px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    font-size: 1.9rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.gp-lb button:hover { background: rgba(255, 255, 255, 0.28); }
+
+.gp-lb-close { top: 16px; right: 16px; }
+.gp-lb-prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.gp-lb-next { right: 14px; top: 50%; transform: translateY(-50%); }
+
+.gp-lb-count {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .gp-lb-prev, .gp-lb-next { width: 40px; height: 40px; }
+}

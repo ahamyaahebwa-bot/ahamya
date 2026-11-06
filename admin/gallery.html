@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Gallery | Cedar Park Dashboard</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="../css/page-entrance.css">
+</head>
+<body class="dash auth-pending">
+<div class="dash-root">
+
+    <header class="dash-top">
+        <button class="dash-menu-btn" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="dash-brand" href="booked-dates.html">
+            <img src="../images/logo.png" alt="">
+            <span>Cedar Park <small>Dashboard</small></span>
+        </a>
+        <div class="dash-top-right">
+            <div class="dash-user">
+                <span class="dash-avatar" data-user-initial>A</span>
+                <span data-user-email></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dash-shell">
+        <aside class="dash-side" id="dashSide">
+            <p class="side-label">Workspace</p>
+            <a class="side-link" href="booked-dates.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Booked dates</span></a>
+            <a class="side-link" href="requests.html"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Booking requests</span></a>
+            <a class="side-link active" href="gallery.html"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 9"/></svg><span>Gallery</span></a>
+
+            <div class="side-bottom">
+                <a class="side-link" href="../index.html"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg><span>Back to website</span></a>
+                <button class="side-link" type="button" data-signout><svg viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h4M16 8l4 4-4 4M20 12H9"/></svg><span>Sign out</span></button>
+            </div>
+        </aside>
+        <div class="side-backdrop" id="sideBackdrop" hidden></div>
+
+        <main class="dash-main">
+            <div class="page-head">
+                <h1>Gallery</h1>
+                <p>Photos you add here appear on the gallery page of your website.</p>
+            </div>
+
+            <section class="card">
+                <h2>Add photos</h2>
+                <p class="sub">Photos keep their shape on the website, landscape or portrait. They are resized automatically.</p>
+
+                <div class="upload-top">
+                    <span>These photos are of the:</span>
+                    <div class="seg" id="spaceSeg">
+                        <button type="button" class="active" data-space="venue">Venue</button>
+                        <button type="button" data-space="hall">Hall</button>
+                    </div>
+                </div>
+
+                <label class="dropzone" id="dropzone">
+                    <svg viewBox="0 0 24 24"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+                    <strong>Drop photos here, or tap to choose</strong>
+                    <span>JPG, PNG or WebP. You can pick many at once.</span>
+                    <input type="file" id="fileInput" accept="image/*" multiple>
+                </label>
+
+                <ul class="queue" id="queue"></ul>
+            </section>
+
+            <section class="card">
+                <div class="card-head">
+                    <h2>Your photos <span id="photoCount" style="color:var(--d-muted);font-weight:400"></span></h2>
+                    <div class="tabs" id="tabs">
+                        <button type="button" class="active" data-filter="all">All</button>
+                        <button type="button" data-filter="venue">Venue</button>
+                        <button type="button" data-filter="hall">Hall</button>
+                    </div>
+                </div>
+                <div class="photo-grid" id="photoGrid"></div>
+                <p class="empty" id="photoEmpty" hidden>No photos here yet.</p>
+            </section>
+
+    <div class="modal-back" id="modal" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <h3 id="modalTitle">Delete this photo?</h3>
+            <p>It will be removed from your website. This can't be undone.</p>
+            <div class="modal-actions">
+                <button class="btn" type="button" id="modalCancel">Cancel</button>
+                <button class="btn danger" type="button" id="modalOk">Delete</button>
+            </div>
+        </div>
+    </div>
+        </main>
+    </div>
+</div>
+
+    <script src="../js/supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="dash.js"></script>
+    <script src="gallery-admin.js"></script>
+    <script src="../js/page-entrance.js"></script>
+    
+</body>
+</html>

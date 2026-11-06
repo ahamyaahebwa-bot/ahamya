@@ -1,0 +1,27 @@
+/* Booking requests page */
+.req-list { list-style: none; display: grid; gap: 10px; margin-top: 16px; }
+.req-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border: 1px solid var(--d-line); border-radius: 16px; cursor: pointer; background: #fff; }
+.req-list li:hover { background: #fafbfa; }
+.r-main { min-width: 0; }
+.r-name { font-weight: 600; }
+.r-meta { color: var(--d-muted); font-size: 0.84rem; margin-top: 2px; }
+.status-pill { padding: 4px 12px; border-radius: 20px; font-size: 0.76rem; font-weight: 700; white-space: nowrap; color: #fff; background: #8a948c; }
+.status-pill.pending { background: #d99a1e; }
+.status-pill.price_agreed { background: #4a5a8a; }
+.status-pill.deposit_received { background: #2f8f9d; }
+.status-pill.confirmed { background: var(--d-green); }
+.status-pill.declined { background: var(--d-danger); }
+.req-modal { max-width: 460px; max-height: 90vh; overflow-y: auto; }
+.req-ref { font-size: 0.85rem; margin-bottom: 12px; }
+.req-facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.92rem; margin-bottom: 16px; }
+.req-facts dt { color: var(--d-muted); }
+.req-facts dd { margin: 0; word-break: break-word; }
+.req-facts a { color: var(--d-green); }
+.req-form { display: grid; gap: 12px; }
+.req-form label { display: grid; gap: 6px; font-size: 0.85rem; font-weight: 600; }
+.req-form input, .req-form select { padding: 11px 12px; border: 1px solid var(--d-line); border-radius: 12px; font: inherit; background: #fff; width: 100%; }
+.req-balance { font-weight: 600; color: var(--d-green-dark); }
+.req-sent { font-size: 0.85rem; color: var(--d-green); font-weight: 600; }
+.modal-actions { flex-wrap: wrap; }
+.req-form label[hidden] { display: none; }
+.new-tag { margin-left: 8px; padding: 2px 8px; border-radius: 20px; background: #e8452c; color: #fff; font-size: 0.7rem; font-weight: 700; vertical-align: middle; }

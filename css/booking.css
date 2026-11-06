@@ -1,0 +1,149 @@
+/* ============================
+    BOOKING PAGE
+============================*/
+
+[hidden] { display: none !important; }
+
+.booking-block {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 6% 20px;
+}
+
+.booking-block h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    color: var(--cedar-dark);
+    margin-bottom: 12px;
+}
+
+.booking-block h2 { color: var(--cedar-dark); margin-bottom: 8px; }
+
+.lead { color: #555; margin-bottom: 28px; }
+
+/* ---- chooser ---- */
+.space-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.space-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.space-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.space-card img { width: 100%; height: 200px; object-fit: cover; }
+.space-card div { padding: 20px; }
+.space-card h3 { color: var(--cedar-dark); margin-bottom: 6px; }
+.space-card p { color: #555; font-size: 0.95rem; margin-bottom: 10px; }
+
+.from { font-weight: bold; color: var(--cedar-dark); }
+.from small { display: block; font-weight: normal; color: #666; margin-top: 2px; }
+
+.unsure { margin-top: 24px; color: #555; }
+.unsure a, .change-link, .back-link { color: var(--cedar-dark); font-weight: bold; text-decoration: underline; }
+
+/* ---- summary ---- */
+.space-summary {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.space-summary img { width: 100%; border-radius: 15px; max-height: 280px; object-fit: cover; }
+.space-summary ul { margin: 12px 0; padding-left: 18px; color: #444; }
+.space-summary p { color: #555; margin-bottom: 8px; }
+.change-link { display: inline-block; margin-top: 8px; }
+
+/* ---- form ---- */
+.enquiry-form { display: flex; flex-direction: column; gap: 16px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.enquiry-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.enquiry-form input,
+.enquiry-form select,
+.enquiry-form textarea {
+    font: inherit;
+    font-weight: normal;
+    padding: 12px 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.enquiry-form textarea { min-height: 110px; resize: vertical; }
+
+.enquiry-form input:focus,
+.enquiry-form select:focus,
+.enquiry-form textarea:focus {
+    outline: 2px solid var(--cedar-green);
+    outline-offset: 1px;
+    border-color: var(--cedar-green);
+}
+
+.hint { color: #666; font-size: 0.9rem; margin-top: -6px; }
+.error { color: #b3261e; font-weight: bold; }
+.hp { position: absolute; left: -9999px; }
+
+.submit-btn {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 13px 28px;
+    background: var(--cedar-green);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover { background: var(--cedar-dark); color: #fff; transform: scale(1.04); }
+.submit-btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+/* ---- confirmation ---- */
+.ref-box {
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    border-radius: 15px;
+    padding: 22px;
+    margin-bottom: 28px;
+}
+
+.ref-box span { color: #555; font-size: 0.9rem; }
+.ref-box strong { display: block; font-size: 1.8rem; color: var(--cedar-dark); margin: 4px 0; }
+.ref-box p { color: #555; }
+
+.next-steps { margin: 10px 0 28px; padding-left: 20px; color: #444; line-height: 1.8; }
+.done .submit-btn { margin-right: 16px; }
+
+/* ---- mobile ---- */
+@media (max-width: 768px) {
+    .booking-block { padding-top: 36px; }
+    .space-cards,
+    .space-summary,
+    .row { grid-template-columns: 1fr; }
+    .submit-btn { align-self: stretch; text-align: center; }
+    .back-link { display: inline-block; margin-top: 16px; }
+}

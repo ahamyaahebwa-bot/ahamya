@@ -1,0 +1,9 @@
+/* Booked dates page additions */
+.b-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.b-note { color: var(--d-muted); font-size: 0.8rem; margin-top: 2px; }
+.b-remove { border: 1px solid var(--d-line); background: #fff; color: var(--d-danger); border-radius: 10px; padding: 5px 10px; font: inherit; font-size: 0.8rem; cursor: pointer; }
+.b-remove:hover { background: #fdf2f2; }
+.block-form { display: grid; gap: 12px; margin: 14px 0; }
+.block-form label { display: grid; gap: 6px; font-size: 0.85rem; font-weight: 600; }
+.block-form input, .block-form select { padding: 11px 12px; border: 1px solid var(--d-line); border-radius: 12px; font: inherit; background: #fff; width: 100%; }
+.head-actions { display: flex; gap: 8px; flex-wrap: wrap; }

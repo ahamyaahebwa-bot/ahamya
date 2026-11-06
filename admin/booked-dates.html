@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Booked dates | Cedar Park Dashboard</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="../css/page-entrance.css">
+</head>
+<body class="dash auth-pending">
+<div class="dash-root">
+
+    <header class="dash-top">
+        <button class="dash-menu-btn" id="menuBtn" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <a class="dash-brand" href="booked-dates.html">
+            <img src="../images/logo.png" alt="">
+            <span>Cedar Park <small>Dashboard</small></span>
+        </a>
+        <div class="dash-top-right">
+            <div class="dash-user">
+                <span class="dash-avatar" data-user-initial>A</span>
+                <span data-user-email></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="dash-shell">
+        <aside class="dash-side" id="dashSide">
+            <p class="side-label">Workspace</p>
+            <a class="side-link active" href="booked-dates.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Booked dates</span></a>
+            <a class="side-link" href="requests.html"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span>Booking requests</span></a>
+            <a class="side-link" href="gallery.html"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 9"/></svg><span>Gallery</span></a>
+
+            <div class="side-bottom">
+                <a class="side-link" href="../index.html"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg><span>Back to website</span></a>
+                <button class="side-link" type="button" data-signout><svg viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 00-1 1v14a1 1 0 001 1h4M16 8l4 4-4 4M20 12H9"/></svg><span>Sign out</span></button>
+            </div>
+        </aside>
+        <div class="side-backdrop" id="sideBackdrop" hidden></div>
+
+        <main class="dash-main">
+            <div class="page-head">
+                <h1>Booked dates</h1>
+                <p>Dates marked here are blocked on the website calendar. Add dates yourself, or confirm a booking request and it is added automatically.</p>
+            </div>
+
+            <div class="stats">
+                <div class="stat"><p>Upcoming bookings</p><h3 id="statUpcoming">-</h3></div>
+                <div class="stat"><p>Next booking</p><h3 id="statNext">-</h3><small id="statNextSub"></small></div>
+                <div class="stat"><p>Last checked</p><h3 id="statChecked" style="font-size:1.25rem">-</h3></div>
+            </div>
+
+            <div class="two-col">
+                <section class="card">
+                    <div class="cal-head">
+                        <button type="button" id="calPrev" aria-label="Previous month">&#8249;</button>
+                        <strong id="calTitle"></strong>
+                        <button type="button" id="calNext" aria-label="Next month">&#8250;</button>
+                    </div>
+                    <div class="cal-grid" id="calGrid"></div>
+                    <div class="legend">
+                        <span><i style="background:var(--d-venue)"></i>Venue booked</span>
+                        <span><i style="background:var(--d-hall)"></i>Hall booked</span>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <div class="card-head">
+                        <h2>Upcoming</h2>
+                        <div class="head-actions">
+                            <button class="btn primary" type="button" id="addBtn">Add booked dates</button>
+                            <button class="btn" type="button" id="refreshBtn">Refresh</button>
+                            <!-- <button class="btn" type="button" id="importBtn" hidden>Import from Google Sheet</button> -->
+                        </div>
+                    </div>
+                    <ul class="booking-list" id="bookingList"></ul>
+                    <p class="empty" id="bookingEmpty" hidden>No upcoming bookings.</p>
+                </section>
+            </div>
+        </main>
+    </div>
+</div>
+
+<div class="modal-back" id="addModal" hidden>
+    <div class="modal">
+        <h3>Add booked dates</h3>
+        <div class="block-form">
+            <label>Space
+                <select id="aSpace">
+                    <option value="venue">Venue</option>
+                    <option value="hall">Hall</option>
+                    <option value="both">Venue + Hall</option>
+                </select>
+            </label>
+            <label>First date
+                <input type="date" id="aStart">
+            </label>
+            <label>Last date (same as first for one day)
+                <input type="date" id="aEnd">
+            </label>
+            <label>Note (only you see this)
+                <input type="text" id="aNote" maxlength="120" placeholder="e.g. Wedding, Mr Okello">
+            </label>
+        </div>
+        <div class="modal-actions">
+            <button class="btn" type="button" id="aClose">Cancel</button>
+            <button class="btn primary" type="button" id="aSave">Save</button>
+        </div>
+    </div>
+</div>
+
+    <script src="../js/supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="dash.js"></script>
+    <script src="bookings-admin.js"></script>
+    <script src="../js/page-entrance.js"></script>
+    
+</body>
+</html>

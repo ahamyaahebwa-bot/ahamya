@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Staff sign in | Cedar Park</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    <link rel="stylesheet" href="dash.css">
+    <link rel="stylesheet" href="../css/page-entrance.css">
+</head>
+<body class="login-page">
+
+    <img class="login-logo" src="../images/logo.png" alt="Cedar Park logo">
+    <h1 class="login-title">CEDAR <span>PARK</span></h1>
+    <p class="login-sub">Staff workspace</p>
+
+    <form class="login-card" id="loginForm" novalidate>
+        <h2>Sign in to your account</h2>
+
+        <p class="login-error" id="loginError" role="alert" hidden></p>
+
+        <div class="field">
+            <label for="email">EMAIL ADDRESS</label>
+            <input id="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+        </div>
+
+        <div class="field">
+            <label for="password">PASSWORD</label>
+            <input id="password" type="password" autocomplete="current-password" required>
+            <button class="eye" type="button" id="eyeBtn" aria-label="Show password"><svg viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+        </div>
+
+        <button class="login-btn" type="submit" id="loginBtn">Sign in</button>
+    </form>
+
+    <p class="login-foot">
+        This workspace is for authorised Cedar Park staff only.<br>
+        <a href="../index.html">&larr; Back to website</a>
+    </p>
+
+    <script src="../js/supabase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+    <script src="dash.js"></script>
+    <script src="login.js"></script>
+    <script src="../js/page-entrance.js"></script>
+    
+</body>
+</html>

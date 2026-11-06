@@ -1,0 +1,98 @@
+[
+  {
+    "id": "starter-venue-1",
+    "src": "images/cedar-park-venue.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue from above",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-2",
+    "src": "images/cedar-park.jpg",
+    "space": "venue",
+    "caption": "Cedar Park grounds and parking",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-hall-1",
+    "src": "images/cedar-park-hall.jpg",
+    "space": "hall",
+    "caption": "Inside Cedar Park Hall",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-3",
+    "src": "images/venue.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-4",
+    "src": "images/venue2.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-5",
+    "src": "images/venue3.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-6",
+    "src": "images/venue4.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-7",
+    "src": "images/venue5.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-8",
+    "src": "images/venue6.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-9",
+    "src": "images/venue7.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-10",
+    "src": "images/venue8.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  },
+  {
+    "id": "starter-venue-11",
+    "src": "images/venue9.jpg",
+    "space": "venue",
+    "caption": "Cedar Park Venue",
+    "type": "image",
+    "uploaded": false
+  }
+]

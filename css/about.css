@@ -1,0 +1,23 @@
+.about {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.about-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--cedar-green);
+}
+
+.highlight {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.highlight:hover {
+    transform: scale(1.05);
+}

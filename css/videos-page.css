@@ -1,0 +1,126 @@
+/* ============================
+    VIDEOS PAGE (videos.html)
+    Uses the same layout rules as the gallery page (css/gallery-page.css is loaded too).
+    This file only adds what videos need: the play button, titles and the player.
+============================ */
+
+/* Fewer, bigger tiles than the photo gallery, centred on very wide screens */
+.vp-cols {
+    justify-content: center;
+}
+
+.vp-cols .gp-col {
+    max-width: 560px;
+}
+
+.gp-item.vp-item {
+    cursor: pointer;
+}
+
+/* the still picture of each video */
+.vp-item video,
+.vp-item img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: transform 0.5s ease;
+}
+
+@media (hover: hover) {
+    .vp-item:hover video,
+    .vp-item:hover img { transform: scale(1.04); }
+}
+
+/* soft shade so the title stays readable */
+.vp-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0) 45%);
+    pointer-events: none;
+}
+
+.vp-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: 62px;
+    height: 62px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--cedar-dark);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.vp-play svg {
+    width: 26px;
+    height: 26px;
+    margin-left: 3px;
+    fill: currentColor;
+}
+
+@media (hover: hover) {
+    .vp-item:hover .vp-play {
+        transform: translate(-50%, -50%) scale(1.1);
+        background: #fff;
+    }
+}
+
+.vp-title {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+    z-index: 2;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ----- the player ----- */
+.vp-lb video {
+    max-width: 94vw;
+    max-height: 84vh;
+    border-radius: 8px;
+    background: #000;
+    outline: none;
+}
+
+.vp-lb-title {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    right: 80px;
+    color: #fff;
+    font-weight: bold;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 640px) {
+    .vp-play { width: 52px; height: 52px; }
+    .vp-title { font-size: 0.85rem; }
+}
+
+.home-link {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--cedar-green);
+}

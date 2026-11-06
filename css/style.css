@@ -1,0 +1,1216 @@
+:root {
+    --cedar-dark: #16452a;
+    --cedar-green: #2f6b3f;
+    --cedar-light: #dcebdc;
+    --cedar-pale: #f4f8f3;
+    --cedar-text: #1f2a22;
+}
+
+/* =============================
+    GENERAL
+=============================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a:focus,
+button:focus,
+.btn:focus {
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-bottom: 90px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--cedar-text);
+    background-color: #e9f7e9;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bahnschrift Semibold", Bahnschrift, Arial, sans-serif;
+    font-weight: 600;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ============================
+    NAVIGATION
+============================*/
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 6%;
+
+    background-color: var(--cedar-pale);
+    border-bottom: 1px solid var(--cedar-light);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Bahnschrift Semibold", Bahnschrift, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.nav-links {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92%, 460px);
+    display: flex;
+    gap: 0;
+    padding: 6px;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.nav-links a {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 8px 0;
+    font-size: 0.75rem;
+    color: #6b6b6b;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover { 
+    color: var(--cedar-green); 
+    transform: none; 
+}
+.nav-links a.active { 
+    color: var(--cedar-dark); 
+    font-weight: bold; 
+}
+
+.nav-links svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-links a svg {
+    transition: transform 0.25s ease;
+    transform-origin: center;
+}
+
+.nav-links a span {
+    display: inline-block;
+    transition: transform 0.25s ease, color 0.25s ease;
+    transform-origin: center;
+}
+
+.nav-links a:hover svg {
+    transform: scale(1.18);
+}
+
+.nav-links a:hover span {
+    transform: scale(1.08);
+    color: var(--cedar-green);
+}
+
+.nav-indicator {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: 0;
+    width: 0;
+    border-radius: 30px;
+    background: rgba(47, 107, 63, 0.2);
+    transition: transform 0.45s cubic-bezier(0.34, 1.3, 0.5, 1),
+                width 0.45s ease;
+    z-index: 0;
+}
+
+
+
+/* ============================
+    HERO
+============================*/
+
+.hero {
+    min-height: 75vh;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 6%;
+
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.45)
+        );
+       
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    border-radius: 20px;
+    
+}
+
+
+.hero-content {
+    max-width: 700px;
+    width: 50%;
+}
+
+.hero-small-text {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-family: Arial, sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: normal;
+    word-spacing: normal;
+    max-width: 1000px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.hero-card {
+    width: 70%;
+    max-width: 1100px;
+    margin-top: 50px;
+    padding: 20px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(2px);
+    border: 3px solid rgba(255, 255, 255, 0.45);
+    -webkit-backdrop-filter: blur(2px);
+    color: var(--cedar-text);
+
+    border-radius: 30px;
+
+    transition: all 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hero-card-text {
+    max-width: 600px;
+}
+
+.hero-card-text h2 {
+    margin-bottom: 10px;
+}
+
+.hero-card-text p {
+    margin-bottom: 0;
+}
+
+
+
+
+/* ============================
+    BUTTONS
+============================*/
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-card-button {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+}
+
+/*--booking buttons--*/
+.primary-btn {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #222;
+    padding: 10px 22px;
+    border-radius: 40px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/*--hover animation--*/
+.primary-btn:hover {
+    transform: scale(1.08);
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #19632a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/*--click animation--*/
+.primary-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.secondary-btn {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+
+/* ============================
+    SECTIONS
+============================*/
+
+.welcome,
+.venues {
+    padding: 40px 6%;
+}
+
+.section-heading {
+    max-width: 900px;
+    margin-bottom: 40px;
+}
+
+.section-heading p {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.15;
+    max-width: 900px;
+}
+
+.welcome-text {
+    max-width: 700px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+/* ============================
+    VENUES
+============================*/
+
+.venue-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.venue-card {
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.venue-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.venue-image {
+    height: 350px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ddd;
+}
+
+.venue-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.venue-info {
+    padding: 30px;
+}
+
+.venue-info h3 {
+    color: var(--cedar-dark);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.venue-info p {
+    margin-bottom: 15px;
+}
+
+.venue-info a {
+    color: var(--cedar-dark);
+    font-weight: bold;
+}
+
+
+/* ============================
+    BOOKING CTA
+============================*/
+
+.booking-cta {
+    padding: 100px 6%;
+
+    text-align: center;
+
+    background-color: #eee;
+}
+
+.booking-cta h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.booking-cta p {
+    margin-bottom: 25px;
+}
+
+
+/* ============================
+    FOOTER
+============================*/
+
+footer {
+    padding: 30px 6%;
+    text-align: center;
+
+    background-color: #222;
+    color: white;
+}
+
+.footer {
+    background: #111;
+    color: white;
+    padding: 60px 6% 20px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.footer-column h3 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer-column p,
+.footer-column a {
+    display: block;
+    color: #ddd;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
+.footer hr {
+    margin: 40px 0 20px;
+    border: none;
+    height: 1px;
+    background: #444;
+}
+
+.footer-bottom {
+    text-align: center;
+}
+
+.company-info {
+    text-align: center;
+}
+
+.footer-logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.company-info h3 {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+
+/* ============================
+    MOBILE
+============================*/
+
+@media (max-width: 768px) {
+    
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-logo {
+        width: 70px;
+    }
+
+    .navbar {
+        
+        flex-direction: column;
+        gap: 20px;
+        padding: 12px 5%;
+    }
+
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .logo img {
+        width: 38px;
+        height: 38px;
+    }
+
+    
+
+    /* Hero bacground layout */
+    .hero {
+        width: 100%;
+        min-height: unset;
+        margin: 0;
+        padding: 45px 6% 30px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 25px;
+
+        background-size: cover;
+        background-position: center;
+        border-radius: 20px;
+    }
+
+    /* main heading */
+    .hero h1 {
+        font-size: clamp(2.1rem, 8vw, 3rem);
+        line-height: 1.08;
+        margin-bottom: 18px;
+        max-width: 100%;
+    }
+
+    .hero p {
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+
+    .hero-small-text {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    /* booking card */
+    .hero-card {
+        width: 100%;
+        max-width: none;
+        margin-top: 90px;
+        padding: 22px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+
+        border-radius: 34px;
+        padding: 16px 18px;
+        gap: 12px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: 2px solid rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+    .hero-card-text {
+        width: 100%;
+        max-width: none;
+    }
+
+    .hero-card-text h2 {
+        font-size: 1.15rem;
+        line-height: 1.25;
+        margin-bottom: 4px;
+    }
+
+    .hero-card-text p {
+        font-size: 0.88rem;
+        line-height: 1.4;
+    }
+
+    .hero-card-button {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .hero-card-button .btn {
+        display: inline-block;
+        text-align: center;
+    }
+
+    
+    .venue-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .venue-image {
+        height: 250px;
+    }
+
+    .venue-info {
+        padding: 22px;
+    }
+
+    /* welcome and venue sections */
+
+    .welcome,
+    .venues {
+        padding: 45px 6%;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.2;
+    }
+
+    .welcome-text {
+        max-width: 100%;
+        text-align: left;
+        line-height: 1.7;
+    }
+
+
+    .booking-cta {
+        padding: 55px 6%;
+    }
+
+    .booking-cta h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .booking-cta p {
+        line-height: 1.6;
+    }
+
+}
+
+
+
+.view-link {
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.view-link:hover {
+    color: #1e4e29;
+    transform: scale(1.1);
+}
+
+.view-link:active {
+    transform: scale(0.95);
+    color: #1e4e29;
+}
+
+/* Hero slide show */
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: inherit;
+    animation: none;
+}
+
+.hero > .hero-slides {
+    animation: none;
+}
+
+.hero-slides .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: heroFade 9s infinite;
+}
+
+.hero-slides .s1 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../images/venue5.jpg");
+}
+
+.hero-slides .s2 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../images/venue10.jpg");
+    animation-delay: 3s;
+}
+
+.hero-slides .s3 {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        url("../images/venue7.jpg");
+    animation-delay: 6s;
+}
+
+@keyframes heroFade {
+    0%   { opacity: 0; transform: scale(1.07); }
+    10%   { opacity: 1; transform: scale(1); }
+    33%  { opacity: 1; transform: scale(1); }
+    40%  { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-slides .slide { animation: none; }
+    .hero-slides .s1 { opacity: 1; }
+}
+
+/* social links in the header */
+.navbar {
+    justify-content: space-between;
+}
+
+.nav-social {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.nav-social a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--cedar-dark);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-social a:hover {
+    color: var(--cedar-green);
+    transform: translateY(-2px);
+}
+
+.nav-social svg {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .nav-social {
+        gap: 14px;
+        padding: 8px 16px;
+
+    }
+
+    .nav-social span {
+        display: none;
+    }
+}
+
+/* floating gallery button */
+.gallery-fab {
+    position: fixed;
+    left: calc(50% + 242px);   /* just right of the nav bar (230px = half its width) */
+    bottom: 24px;
+    z-index: 1000;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-fab:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-fab svg {
+    width: 34px;
+    height: 34px;
+    fill: var(--cedar-dark);
+    stroke: none;
+}
+
+.gallery-fab .hub {
+    fill: rgba(255, 255, 255, 0.85);
+}
+
+/* phones: no room beside the nav, so sit just above it */
+@media (max-width: 640px) {
+    .gallery-fab {
+        left: auto;
+        right: max(4%, calc(50% - 230px));
+        bottom: 94px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .gallery-fab svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+
+/* Frosted glass navigation over the dark footer */
+.nav-links.footer-mode {
+    background: rgba(35, 45, 38, 0.48);
+
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    border-radius: 40px;
+    overflow: hidden;
+
+    
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        backdrop-filter 0.25s ease;
+}
+
+.nav-indicator {
+    border-radius: 40px;
+}
+
+.nav-links.footer-mode a {
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.nav-links.footer-mode a.active {
+    color: #a4e6b0;
+}
+
+.nav-links.footer-mode a:hover {
+    color: #c6f5ce;
+}
+
+.nav-links.footer-mode .nav-indicator {
+    background: rgba(115, 210, 135, 0.22);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =============================
+   CEDAR PARK INTRO VIDEO
+============================= */
+
+.intro-video {
+    padding: 60px 6%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.intro-video-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.video-label {
+    color: var(--cedar-green);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.intro-video-container h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.video-description {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    line-height: 1.7;
+}
+
+.intro-video video {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin: 0 auto;
+    border-radius: 22px;
+    background: #111;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .intro-video {
+        padding: 40px 6%;
+    }
+
+    .intro-video-container h2 {
+        font-size: clamp(1.7rem, 6vw, 2.3rem);
+    }
+
+    .video-description {
+        font-size: 0.95rem;
+        margin-bottom: 22px;
+    }
+
+    .intro-video video {
+        border-radius: 16px;
+    }
+}
+
+.why-us,
+.find-us {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 6%;
+}
+
+.why-us h2,
+.find-us h2 {
+    text-align: center;
+    color: var(--cedar-dark);
+    margin-bottom: 28px;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.fact {
+    padding: 24px 16px;
+    text-align: center;
+    background: var(--cedar-pale);
+    border: 1px solid var(--cedar-light);
+    border-radius: 15px;
+}
+
+.fact strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 1.6rem;
+    color: var(--cedar-dark);
+}
+
+.fact span {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.find-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.find-text p {
+    margin-bottom: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.find-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    background: var(--cedar-green);
+    color: #fff;
+    border-radius: 40px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.find-btn:hover {
+    background: var(--cedar-dark);
+    color: #fff;
+    transform: scale(1.04);
+}
+
+.find-map {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .why-us,
+    .find-us {
+        padding: 36px 6%;
+    }
+
+    .facts {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .find-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .find-map {
+        height: 250px;
+    }
+}
+
+/* --------------------------------------------------------------------------------------------------------- */
+
+/* calendar button: right of the nav bar, beside the gallery button */
+.dates-fab {
+    left: calc(50% + 242px);
+    right: auto;
+}
+
+/* on the venue page there's no gallery button, so take its place */
+.dates-fab svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: var(--cedar-dark);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.dates-fab svg circle {
+    fill: var(--cedar-dark);
+    stroke: none;
+}
+
+.dates-fab.solo {
+    left: calc(50% + 242px);
+}
+/*
+.dates-fab svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: var(--cedar-dark);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+} */
+
+
+
+.dates-fab svg circle {
+    fill: var(--cedar-dark);
+    stroke: none;
+}
+
+@media (max-width: 640px) {
+    .dates-fab {
+        left: auto;
+        right: max(4%, calc(50% - 230px));
+        bottom: 94px;
+        width: 54px;
+        height: 54px;
+    }
+
+    .dates-fab.solo {
+        left: auto;
+        bottom: 94px;
+    }
+}
+
+#datesview:not([hidden]) {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 70vh;
+    padding: 40px 20px 60px;
+    box-sizing: border-box;
+    background: #f5f8f5;
+    
+}
+
+#calDates {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* floating buttons */
+
+/* floating buttons: smooth change over the dark footer */
+.gallery-fab {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.gallery-fab svg {
+    transition: fill 0.25s ease, stroke 0.25s ease;
+}
+
+.gallery-fab.footer-mode {
+    background: rgba(35, 45, 38, 0.48);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border: 2px solid rgba(255, 255, 255, 0.22);
+}
+
+/* gallery flower */
+.gallery-fab.footer-mode svg {
+    fill: #a4e6b0;
+}
+
+.gallery-fab.footer-mode .hub {
+    fill: rgba(35, 45, 38, 0.9);
+}
+
+/* calendar icon (drawn with lines, so it needs its own rules) */
+.dates-fab.footer-mode svg {
+    fill: none;
+    stroke: #a4e6b0;
+}
+
+.dates-fab.footer-mode svg circle {
+    fill: #a4e6b0;
+    stroke: none;
+}
+
+/* "View videos" link under the home page video */
+.video-more {
+
+    margin-top: 24px;
+    font-weight: bold;
+    font-size: 1.05rem;
+    color: var(--cedar-green);
+}
+
